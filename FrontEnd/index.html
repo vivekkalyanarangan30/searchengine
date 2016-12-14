@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  <title>Smart Search</title>
+  <link rel="shortcut icon" href="images/wiki.ico" />
+
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="styles/header-second-bar.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+</head>
+<!-- boot angular with the ExampleApp module -->
+<body ng-app="SmartSearch">
+  <!-- attach the ExampleController to our main content -->
+  <div ng-controller="SmartSearchController" class="container">
+
+    <!-- if there is an error, display its message -->
+    <div ng-if="error" class="alert alert-danger" role="alert">{{error.message}}</div>
+
+    <!-- if clusterState is available, display it as formatted json -->
+    <!-- <div ng-if="search_res" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Sample Search</h3>
+      </div>
+      <div class="panel-body">
+        <pre>{{search_res | json}}</pre>
+      </div>
+    </div> -->
+	
+		<header class="header-two-bars">
+
+		<div class="header-first-bar">
+
+			<div class="header-limiter">
+				<div class="col-md-2" style="float:left;"><img alt="" src="images/wiki_logo.png" class="img-responsive"/></div>
+				<h1><a href="#">&nbsp;&nbsp;&nbsp;<span style="color:white;">Smart Search</span></a></h1>
+			</div>
+
+		</div>
+
+		<div class="header-second-bar">
+
+			<div class="header-limiter">
+				<div class="input-group">
+				  <input id="txt_search" type="textbox" popover-trigger="focus" placeholder="Enter search query here..." class="form-control ui-widget" ng-model="search_query" ng-model-onblur focus-on="focusMe" ng-keyup="$event.keyCode == 13 ? search_click() : null" typeahead="item for item in autocomplete($viewValue) | limitTo:15 " typeahead-on-select="search_query=$model" autofocus>
+				  <span class="input-group-btn">
+					<button class="btn btn-default" type="button" id="btn_search" ng-click='search_click()'>Search</button>
+				  </span>
+				</div>
+
+			</div>
+			 </div>
+			<div>
+			<table class="table table-bordered table-striped">
+				<thead>
+				  <tr>
+					<td>
+						<div><input class="form-control" ng-model="f._id"></div>
+						<a href="#" ng-click="sortType = '_id'; sortReverse = !sortReverse">
+							URI
+							<span ng-show="sortType == '_id' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == '_id' && sortReverse" class="fa fa-caret-up"></span>
+						  </a>
+					</td>
+					<td>
+						<div><input class="form-control" ng-model="f.fields.MNEMONIC"></div>
+						<a href="#" ng-click="sortType = 'fields.name'; sortReverse = !sortReverse">
+							Name
+							<span ng-show="sortType == 'fields.name' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'fields.name' && sortReverse" class="fa fa-caret-up"></span>
+						  </a>
+					</td>
+					<td>
+						<div><input class="form-control" ng-model="f._score"></div>
+						<a href="#" ng-click="sortType = '_score'; sortReverse = !sortReverse">
+							Score
+							<span ng-show="sortType == '_score' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == '_score' && sortReverse" class="fa fa-caret-up"></span>
+						  </a>
+
+					</td>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="result in search_res | orderBy:sortType:sortReverse  | filter:f" ng-show="search_query">
+					<td>{{ result._id }}</div></td>
+					<td>{{ result.fields.name }}</td>
+					<td>{{ result._score }}</td>
+				  </tr>
+				</tbody>
+			  </table>			  
+		</div>
+
+	</header>
+
+  </div>
+  
+  <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Vivek's Search Engine 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <!-- include npm modules in proper order -->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src = "node_modules/angular/angular-ui-bootstrap.js"></script>
+  <script src = "node_modules/angular/angular-sanitize.js"></script>
+  <script src="node_modules/elasticsearch-browser/elasticsearch.angular.min.js"></script>
+
+  <!-- app code starts is here -->
+  <script src="scripts/app.js"></script>
+</body>
+</html>
