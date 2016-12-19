@@ -11,7 +11,6 @@ import json
 import time
 from elasticsearch import Elasticsearch
 
-start_time = time.time()
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 start_time = time.time()
