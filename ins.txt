@@ -1,0 +1,6 @@
+build docker
+docker run -it -h searchengine -p 9200:9200 -p 80:80 --name searchengine searchengine
+start elasticsearch [elasticsearch -Des.insecure.allow.root=true]
+run config
+run indexing
+start apache2

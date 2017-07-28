@@ -59,8 +59,8 @@ settings = '''
    }
 }
 '''
-url = 'http://localhost:9200/wiki_search'
-resp_del = requests.delete(url)
-print resp_del
+url = 'http://192.168.99.100:9200/wiki_search'
+#resp_del = requests.delete(url)
+#print resp_del
 resp = requests.put(url,data=settings)
 print resp

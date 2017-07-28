@@ -11,7 +11,7 @@
     // into a service so that it can be required by other parts of the application
     SmartSearch.service('client', function (esFactory) {
       return esFactory({
-        host: 'localhost:9200',
+        host: 'http://192.168.99.100:9200',
         apiVersion: '2.3',
         log: 'error'
       });

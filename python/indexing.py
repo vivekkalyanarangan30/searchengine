@@ -14,7 +14,7 @@ from elasticsearch import Elasticsearch
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 start_time = time.time()
-data = pd.read_csv('people_wiki.csv')
+data = pd.read_csv('/usr/local/searchengine/data/people_wiki.csv')
 
 print 'Data prepared in ' + str((time.time()-start_time)/60) + ' minutes'
 

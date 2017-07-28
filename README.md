@@ -27,10 +27,21 @@ The data for the search engine is available here in case you want an exact repli
 Everything else will be available here itself.
 
 # Setup
+
+## Docker Setup
+0. Install [Docker](https://docs.docker.com/engine/installation/)
+1. Run `git clone https://github.com/vivekkalyanarangan30/searchengine`
+2. Open docker terminal and navigate to `/path/to/searchengine`
+3. Run `docker build -t searchengine .`
+4. Patience is a virtue. Grab a coffee!
+5. Run `docker run -it -h searchengine -p 9200:9200 -p 80:80 --name searchengine searchengine`
+6. Patience will take you a long way. Give it 15 minutes
+7. Access http://192.168.99.100/ from your browser [assuming you are on windows and docker-machine has that IP. Otherwise just use localhost]
+
+## Native Setup
 1. install elasticsearch, python 2.7 anaconda distribution [details available in Part 1 of the blog]
 2. Start elasticsearch
-3. run config.python
+3. run config.py
 4. run indexing.py (data has to be in the same folder as indexing.py - or you can change the name/location in the script)
 5. Put the FrontEnd folder in the webapps folder of tomcat and start tomcat
-
-Everything should be accessible from http://localhost:8080/FrontEnd - assuming everything is locally installed and tomcat is running on port 8080
+6. Everything should be accessible from http://localhost:8080/FrontEnd - assuming everything is locally installed and tomcat is running on port 8080
