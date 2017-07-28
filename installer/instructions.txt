@@ -1,1 +1,0 @@
-Download anaconda installer from https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh and place it here
