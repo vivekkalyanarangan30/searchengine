@@ -59,6 +59,13 @@ settings = '''
    }
 }
 '''
+
+import platform
+if platform.system()=='Windows':
+    host = '192.168.99.100'
+else:
+    host = 'localhost'
+    
 url = 'http://192.168.99.100:9200/wiki_search'
 #resp_del = requests.delete(url)
 #print resp_del
