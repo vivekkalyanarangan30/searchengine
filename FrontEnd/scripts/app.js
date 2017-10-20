@@ -1,3 +1,14 @@
+      var OSName="Unknown OS";
+      var hostName = "localhost"
+      if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+      if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+      if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+      if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+      if(OSName=="Windows"){
+      	hostName = "192.168.99.100"
+      }
+
+
     // App module
     //
     // The app module will contain all of the components the app needs (directives,
@@ -11,7 +22,7 @@
     // into a service so that it can be required by other parts of the application
     SmartSearch.service('client', function (esFactory) {
       return esFactory({
-        host: 'http://192.168.99.100:9200',
+        host: 'http://'+hostName+':9200',
         apiVersion: '2.3',
         log: 'error'
       });
