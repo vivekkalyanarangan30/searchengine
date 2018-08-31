@@ -31,12 +31,13 @@ Everything else will be available here itself.
 ## Docker Setup
 0. Install [Docker](https://docs.docker.com/engine/installation/)
 1. Run `git clone https://github.com/vivekkalyanarangan30/searchengine`
-2. Open docker terminal and navigate to `/path/to/searchengine`
-3. Run `docker build -t searchengine .`
-4. Patience is a virtue. Grab a coffee!
-5. Run `docker run -it -h searchengine -p 9200:9200 -p 80:80 --name searchengine searchengine`
-6. Patience will take you a long way. Give it 15 minutes
-7. Access http://192.168.99.100/ from your browser [assuming you are on windows and docker-machine has that IP. Otherwise just use localhost]
+2. Download the data (link in `data` folder)
+3. Open docker terminal and navigate to `/path/to/searchengine`
+4. Run `docker build -t searchengine .`
+5. Patience is a virtue. Grab a coffee!
+6. Run `docker run -it -h searchengine -p 9200:9200 -p 80:80 --name searchengine searchengine`
+7. Patience will take you a long way. Give it 15 minutes
+8. Access http://192.168.99.100/ from your browser [assuming you are on windows and docker-machine has that IP. Otherwise just use localhost]
 
 ## Native Setup
 1. install elasticsearch, python 2.7 anaconda distribution [details available in Part 1 of the blog]
