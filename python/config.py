@@ -66,7 +66,7 @@ if platform.system()=='Windows':
 else:
     host = 'localhost'
     
-url = 'http://192.168.99.100:9200/wiki_search'
+url = 'http://'+host+':9200/wiki_search'
 #resp_del = requests.delete(url)
 #print resp_del
 resp = requests.put(url,data=settings)
