@@ -10,6 +10,7 @@ import numpy as np
 import json
 import time
 from elasticsearch import Elasticsearch, helpers
+import csv
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
